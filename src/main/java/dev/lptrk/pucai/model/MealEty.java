@@ -12,7 +12,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "meal")
+@Table(name = "meals")
 public class MealEty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
