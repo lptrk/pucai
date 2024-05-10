@@ -26,6 +26,28 @@ public class MealsController {
         return ResponseEntity.ok(mealsService.findById(id));
     }
 
+    @GetMapping
+    public ResponseEntity<List<MealEty>> findMealsByName(@RequestParam(required = false) String name) {
+        if (name != null) {
+            List<MealEty> meals = mealsService.findAllByMealName(name);
+            return ResponseEntity.ok(meals);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<MealEty>> findMealsByIngredient(@RequestParam String ingredient) {
+        List<MealEty> meals = mealsService.findAllByIngredientsContaining(ingredient);
+        return ResponseEntity.ok(meals);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<MealEty>> findMealsByIngredients(@RequestParam List<String> ingredients) {
+        List<MealEty> meals = mealsService.findAllByIngredientsIn(ingredients);
+        return ResponseEntity.ok(meals);
+    }
+
     @PostMapping
     public ResponseEntity<MealEty> save(@RequestBody MealEty mealEty) {
         return ResponseEntity.ok(mealsService.save(mealEty));

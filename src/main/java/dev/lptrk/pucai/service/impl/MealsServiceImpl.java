@@ -21,6 +21,21 @@ public class MealsServiceImpl implements MealsService {
     }
 
     @Override
+    public List<MealEty> findAllByMealName(String mealName) {
+        return mealsRepository.findAllByMealName(mealName);
+    }
+
+    @Override
+    public List<MealEty> findAllByIngredientsContaining(String ingredient) {
+        return mealsRepository.findAllByIngredientsContaining(ingredient);
+    }
+
+    @Override
+    public List<MealEty> findAllByIngredientsIn(List<String> ingredients) {
+        return mealsRepository.findAllByIngredientsIn(ingredients);
+    }
+
+    @Override
     public MealEty findById(Long id) {
         return mealsRepository.findById(id).orElse(null);
     }
