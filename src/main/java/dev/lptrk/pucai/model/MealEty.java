@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -17,6 +19,9 @@ public class MealEty {
     private Long mealId;
     private String mealName;
     private String mealDescription;
-    @Timestamp
+    @Temporal(TemporalType.TIMESTAMP)
     private Date mealTime = new Date();
+    @ElementCollection
+    private Set<String> ingredients = new HashSet<>();
+
 }
