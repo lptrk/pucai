@@ -17,11 +17,20 @@ public class MealEty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long mealId;
+
     private String mealName;
+
     private String mealDescription;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date mealTime = new Date();
+
     @ElementCollection
     private Set<String> ingredients = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEty user;
+
 
 }
