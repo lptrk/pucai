@@ -6,7 +6,7 @@ import dev.lptrk.pucai.service.PucaiService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -21,7 +21,7 @@ public class PucaiServiceImpl implements PucaiService {
     }
 
     @Override
-    public List<PucaiEty> findAllByDateAfter(Date date) {
+    public List<PucaiEty> findAllByDateAfter(LocalDate date) {
         return this.pucaiRepository.findAllByDateAfter(date);
     }
 
