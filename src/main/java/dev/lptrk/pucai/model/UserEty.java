@@ -24,4 +24,9 @@ public class UserEty {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MealEty> meals = new ArrayList<>();
 
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PucaiEty> pucais = new ArrayList<>();
+
+
 }
