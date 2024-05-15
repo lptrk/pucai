@@ -3,17 +3,15 @@ package dev.lptrk.pucai.service.impl;
 import dev.lptrk.pucai.dao.MealsRepository;
 import dev.lptrk.pucai.model.MealEty;
 import dev.lptrk.pucai.service.MealsService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class MealsServiceImpl implements MealsService {
     private final MealsRepository mealsRepository;
-
-    public MealsServiceImpl(MealsRepository mealsRepository) {
-        this.mealsRepository = mealsRepository;
-    }
 
     @Override
     public List<MealEty> findAll() {
