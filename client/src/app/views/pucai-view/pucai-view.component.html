@@ -1,0 +1,54 @@
+<div class="w-full  grid grid-rows gap-4 items-center justify-center ">
+  <select #stomachache class="select text-white w-full max-w-xs backdrop-blur-md bg-transparent backdrop-brightness-105"
+          (change)="saveValue(stomachache.value)">
+    <option disabled selected>Bauchschmerzen</option>
+    <option value="0">Keine</option>
+    <option value="5">Schmerz kann ignoriert werden</option>
+    <option value="10">Schmerz ist nicht ignorierbar</option>
+
+  </select>
+  <select #bleeding class="select text-white w-full max-w-xs backdrop-blur-md bg-transparent backdrop-brightness-105"
+          (change)="saveValue(bleeding.value)">
+    <option disabled selected>Rektale Blutungen</option>
+    <option value="0">Keine</option>
+    <option value="10">Kleine Menge, in weniger als 50% der Stühle</option>
+    <option value="20">Kleine Menge, in den meisten Stühlen</option>
+    <option value="30">Große Menge, in den meisten Stühlen</option>
+  </select>
+  <select #consistence class="select text-white w-full max-w-xs backdrop-blur-md bg-transparent backdrop-brightness-105"
+          (change)="saveValue(consistence.value)">
+    <option disabled selected>Stuhlkonsistenz</option>
+    <option value="0">Geformt</option>
+    <option value="5">Halbgeformt</option>
+    <option value="10">Dünn</option>
+  </select>
+  <select #stoolIn24Hours
+          class="select text-white w-full max-w-xs backdrop-blur-md bg-transparent backdrop-brightness-105"
+          (change)="saveValue(stoolIn24Hours.value)">
+    <option disabled selected>Stuhlgäng in 24 Stunden</option>
+    <option value="0">0 - 2</option>
+    <option value="5">3 - 5</option>
+    <option value="10">6 - 8</option>
+    <option value="15">>8</option>
+  </select>
+  <select #nocternal class="select text-white w-full max-w-xs backdrop-blur-md bg-transparent backdrop-brightness-105"
+          (change)="saveValue(nocternal.value)">
+    <option disabled selected>Nächtliches Erwachen durch Stuhldrang</option>
+    <option value="0">Nein</option>
+    <option value="10">Ja</option>
+  </select>
+  <select #activity class="select text-white w-full max-w-xs backdrop-blur-md bg-transparent backdrop-brightness-105"
+          (change)="saveValue(activity.value)">
+    <option disabled selected>Aktivitätslevel</option>
+    <option value="0">Keine Beeinträchtigung der Aktivität</option>
+    <option value="5">Geringe Beeinträchtigung</option>
+    <option value="10">Starke Beeinträchtigung</option>
+  </select>
+  <p class="text-center w-full font-extrabold text-white text-4xl italic">{{ sum }}</p>
+  <button class="btn btn-outline btn-error" (click)="resetValues()">Abbrechen</button>
+  @if(this.isScoreSubmittedToday){
+    <button class="btn btn-outline btn-success btn-disabled">Speichern</button>
+  } @else {
+    <button class="btn btn-outline btn-success" (click)="savePucai(sum)">Speichern</button>
+  }
+</div>

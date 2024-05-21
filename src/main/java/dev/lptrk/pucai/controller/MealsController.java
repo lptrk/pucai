@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/meals")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MealsController {
     private final MealsServiceImpl mealsService;
 

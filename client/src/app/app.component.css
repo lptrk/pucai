@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :host {
   --bright-blue: oklch(51.01% 0.274 263.83);

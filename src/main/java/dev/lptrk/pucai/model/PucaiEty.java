@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -16,8 +16,7 @@ public class PucaiEty {
 
     private Integer score;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

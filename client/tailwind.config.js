@@ -1,9 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    "./src/**/*.{html,ts}",
+    "./src/app/**/*.{html,ts}",
+    "./src/app/shared/components/**/*.{html,ts}",
+
+  ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require('daisyui'),
+  ],
+  daisyui: {
+    themes: ["light", "dark", "cupcake"],
+  },
 }
 
